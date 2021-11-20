@@ -1,0 +1,38 @@
+<app-section-title title="Gods"></app-section-title>
+
+<div class="gods-list">
+  <a
+    class="single-god"
+    routerLink="/gods/{{ god.name }}"
+    *ngFor="let god of gods$ | async"
+  >
+    <mat-card
+      class="god-card"
+      [ngStyle]="{ 'background-image': 'url(' + god.card + ')' }"
+    >
+      <mat-card-content>
+        <div class="details">
+          <div class="details__pantheon"><i class="icon-egyptian"></i></div>
+          <div class="details--top">
+            <div class="details__name">{{ god.name }}</div>
+            <div class="details__title">{{ god.title }}</div>
+          </div>
+          <div class="details--bottom">
+            <div class="details__class">
+              <span>{{ god.role }}</span>
+              <div class="class__divider"></div>
+              <span>{{ god.type.split(",")[0] }}</span>
+              <div class="class__divider"></div>
+              <span>{{ god.type.split(",")[1] }}</span>
+            </div>
+            <div class="details__tags">{{ god.pros }}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </a>
+</div>
+
+<div *ngIf="loading" class="loading-wrapper">
+  <mat-spinner></mat-spinner>
+</div>

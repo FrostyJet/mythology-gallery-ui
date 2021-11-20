@@ -1,0 +1,87 @@
+<ng-container *ngIf="godDetails$ | async as godDetails">
+  <div
+    class="profile__header"
+    [ngStyle]="{
+      'background-image': 'url(' + godDetails.acf.god_header_image + ')'
+    }"
+  >
+    <h1>{{ godDetails.frontend_info.name }}</h1>
+    <h4>{{ godDetails.api_information.Title }}</h4>
+    <div class="header-gradient"></div>
+  </div>
+
+  <div class="profile__meta">
+    <div class="meta__single">
+      <i class="icon-{{ godDetails.frontend_info.role | lowercase }}"></i
+      ><span>{{ godDetails.frontend_info.role }}</span>
+    </div>
+    <div class="meta__single">
+      <i class="icon-{{ godDetails.frontend_info.pantheon | lowercase }}"></i
+      ><span>{{ godDetails.frontend_info.pantheon }}</span>
+    </div>
+    <div class="meta__single">
+      <i
+        class="icon-{{
+          godDetails.frontend_info.type.split(',')[0] | lowercase
+        }}"
+      ></i
+      ><span>{{ godDetails.frontend_info.type.split(",")[0] }}</span>
+    </div>
+    <div class="meta__single">
+      <i
+        class="icon-{{
+          godDetails.frontend_info.type.split(',')[1].trim() | lowercase
+        }}"
+      ></i
+      ><span> {{ godDetails.frontend_info.type.split(",")[1] }}</span>
+    </div>
+  </div>
+
+  <div class="profile__sections">
+    <section>
+      <h4>Lore</h4>
+      <p [innerHTML]="godDetails.api_information.Lore | newlineToBr"></p>
+    </section>
+
+    <section>
+      <h4>Abilities</h4>
+
+      <div class="profile__skills">
+        <mat-tab-group animationDuration="250ms">
+          <mat-tab
+            label="{{ skill.Summary }}"
+            *ngFor="let skill of godDetails.abilities"
+          >
+            <div class="ability-details">
+              <h3>{{ skill.Summary }}</h3>
+
+              <img src="{{ skill.URL }}" alt="" />
+
+              <p>
+                {{ skill.Description.itemDescription.description }}
+              </p>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </section>
+  </div>
+
+  <div class="skins__wrapper">
+    <app-section-title title="Skins"></app-section-title>
+    <div class="skins__list">
+      <div
+        *ngFor="let skin of godDetails.skins"
+        class="single__skin"
+        [ngStyle]="{
+          'background-image': 'url(' + skin.image + ')'
+        }"
+      >
+        <div class="skin__details">
+          <div class="skin__name">{{ skin.name }}</div>
+          <div class="skin__type">{{ skin.type }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

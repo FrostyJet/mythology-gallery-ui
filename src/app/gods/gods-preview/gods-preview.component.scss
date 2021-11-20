@@ -1,0 +1,191 @@
+.profile__header {
+  align-items: center;
+  background: #071425;
+  background-size: cover;
+  background-position: 50%;
+  border-bottom: 1rem solid #071425;
+  display: flex;
+  flex-direction: column;
+  height: 35.82031vw;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 0 2rem #000, 0 0 4rem #000;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ada176;
+
+  h1 {
+    font-size: 6rem;
+    letter-spacing: 1rem;
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.7;
+    padding-top: 18%;
+    position: relative;
+    text-align: center;
+    text-indent: 3rem;
+    text-shadow: 0 0 3rem #000, 0 0 3rem #000;
+    z-index: 10;
+  }
+
+  h4 {
+    color: #ada176;
+    letter-spacing: 1.2rem;
+    position: relative;
+    text-shadow: 0 0 3rem #000, 0 0 3rem #000;
+    z-index: 10;
+    font-size: 2rem;
+    letter-spacing: 1rem;
+  }
+
+  .header-gradient {
+    background: linear-gradient(0deg, #000, transparent);
+    bottom: 0;
+    left: 0;
+    height: 40%;
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+  }
+}
+
+.profile__meta {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  padding: 8rem 0;
+
+  .meta__single {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 20rem;
+
+    &:not(:last-of-type) {
+      margin-right: 4rem;
+    }
+
+    i {
+      font-size: 7rem;
+    }
+
+    span {
+      color: #ada176;
+      font-size: 1.8rem;
+      letter-spacing: 0.5rem;
+      margin-top: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.profile__sections {
+  color: #fff;
+  font-weight: 100;
+  margin: auto;
+  max-width: 80%;
+
+  section {
+    margin-bottom: 5rem;
+
+    > h4 {
+      color: #ada176;
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-weight: 100;
+    }
+
+    p {
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      margin-top: 2rem;
+      font-weight: 100;
+      letter-spacing: 0.1rem;
+    }
+  }
+}
+
+.profile__skills {
+  .mat-tab-label .mat-tab-label-content {
+    color: #fff;
+  }
+
+  .mat-tab-group.mat-primary .mat-ink-bar,
+  .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #ada176;
+  }
+
+  .ability-details {
+    padding: 50px 20px 0;
+    font-weight: 100;
+
+    > h3 {
+      text-align: center;
+      padding: 2rem;
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-weight: inherit;
+    }
+
+    > img {
+      display: block;
+      margin: auto;
+      border: 1px solid #aea176;
+    }
+
+    > p {
+      font-weight: inherit;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.skins__wrapper {
+  color: #fff;
+
+  .skins__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .single__skin {
+    background: #030912;
+    background-position: center -1.8rem;
+    background-size: cover;
+    border: 0.1rem solid #ada176;
+    cursor: pointer;
+    height: 46rem;
+    margin: 0 0.9rem 2.4rem;
+    position: relative;
+    width: 28.2rem;
+  }
+
+  .skin__details {
+    background: #071325;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+
+    .skin__name {
+      border-top: 0.1rem solid #ada176;
+      color: #fff;
+      letter-spacing: 0.5rem;
+      padding: 1rem;
+    }
+
+    .skin__type {
+      border-top: 0.1rem solid #ada176;
+      color: #ada176;
+      font-size: 1.2rem;
+      letter-spacing: 0.2rem;
+      padding: 1rem;
+    }
+  }
+}
