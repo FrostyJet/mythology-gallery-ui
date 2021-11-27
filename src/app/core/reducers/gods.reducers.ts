@@ -1,15 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import { setGods, setPreviewGod } from '../actions/gods.actions';
-import {
-  God,
-  GodDetails,
-  GodDetailsEntity,
-  GodEntity,
-} from '../models/gods.model';
+import { GodDetails, GodEntity } from '../models/gods.model';
 
 export const initialState: {
   gods: GodEntity[];
-  previewGod: GodDetailsEntity | null;
+  previewGod: GodDetails | null;
 } = {
   gods: [],
   previewGod: null,
@@ -25,6 +20,6 @@ export const godsReducer = createReducer(
   }),
   on(setPreviewGod, (state, { previewGod }) => ({
     ...state,
-    previewGod: new GodDetailsEntity(previewGod),
+    previewGod: previewGod,
   }))
 );

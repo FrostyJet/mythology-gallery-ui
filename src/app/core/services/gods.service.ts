@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -9,17 +10,21 @@ import { God, GodDetails } from '../models/gods.model';
 export class GodsService {
   constructor(private http: HttpClient) {}
 
+  getApiHost() {
+    return environment.godsApiHost;
+  }
+
   getGods(): Observable<Array<God>> {
     return this.http
-      .get<God[]>('https://cms.smitegame.com/wp-json/smite-api/all-gods/1')
-      .pipe(map((gods) => gods));
+      .get<{ gods: God[] }>(this.getApiHost() + '/gods')
+      .pipe(map(({ gods }) => gods));
   }
 
   getGodDetails(str: string): Observable<GodDetails> {
-    let slug = str.toLowerCase().replace(/ /g, '-');
+    let slug = str.toLowerCase().replace(/ /g, '-').replace(/'/g, '');
 
-    return this.http.get<GodDetails>(
-      `https://cms.smitegame.com/wp-json/wp/v2/gods?slug=${slug}&lang_id=1`
-    );
+    return this.http
+      .get<{ god: GodDetails }>(`${this.getApiHost()}/gods/${slug}`)
+      .pipe(map(({ god }) => god));
   }
 }

@@ -2,45 +2,37 @@
   <div
     class="profile__header"
     [ngStyle]="{
-      'background-image': 'url(' + godDetails.acf.god_header_image + ')'
+      'background-image': 'url(' + godDetails.header_image + ')'
     }"
   >
-    <h1>{{ godDetails.frontend_info.name }}</h1>
-    <h4>{{ godDetails.api_information.Title }}</h4>
+    <h1>{{ godDetails.name }}</h1>
+    <h4>{{ godDetails.title }}</h4>
     <div class="header-gradient"></div>
   </div>
 
   <div class="profile__meta">
     <div class="meta__single">
-      <i class="icon-{{ godDetails.frontend_info.role | lowercase }}"></i
-      ><span>{{ godDetails.frontend_info.role }}</span>
+      <i class="icon-{{ godDetails.role | lowercase }}"></i
+      ><span>{{ godDetails.role }}</span>
     </div>
     <div class="meta__single">
-      <i class="icon-{{ godDetails.frontend_info.pantheon | lowercase }}"></i
-      ><span>{{ godDetails.frontend_info.pantheon }}</span>
+      <i class="icon-{{ godDetails.pantheon | lowercase }}"></i
+      ><span>{{ godDetails.pantheon }}</span>
     </div>
     <div class="meta__single">
-      <i
-        class="icon-{{
-          godDetails.frontend_info.type.split(',')[0] | lowercase
-        }}"
-      ></i
-      ><span>{{ godDetails.frontend_info.type.split(",")[0] }}</span>
+      <i class="icon-{{ godDetails.type.split(',')[0] | lowercase }}"></i
+      ><span>{{ godDetails.type.split(",")[0] }}</span>
     </div>
     <div class="meta__single">
-      <i
-        class="icon-{{
-          godDetails.frontend_info.type.split(',')[1].trim() | lowercase
-        }}"
-      ></i
-      ><span> {{ godDetails.frontend_info.type.split(",")[1] }}</span>
+      <i class="icon-{{ godDetails.type.split(',')[1].trim() | lowercase }}"></i
+      ><span> {{ godDetails.type.split(",")[1] }}</span>
     </div>
   </div>
 
   <div class="profile__sections">
     <section>
       <h4>Lore</h4>
-      <p [innerHTML]="godDetails.api_information.Lore | newlineToBr"></p>
+      <p [innerHTML]="godDetails.lore | newlineToBr"></p>
     </section>
 
     <section>
@@ -49,16 +41,16 @@
       <div class="profile__skills">
         <mat-tab-group animationDuration="250ms">
           <mat-tab
-            label="{{ skill.Summary }}"
+            label="{{ skill.summary }}"
             *ngFor="let skill of godDetails.abilities"
           >
             <div class="ability-details">
-              <h3>{{ skill.Summary }}</h3>
+              <h3>{{ skill.summary }}</h3>
 
-              <img src="{{ skill.URL }}" alt="" />
+              <img src="{{ skill.url }}" alt="" />
 
               <p>
-                {{ skill.Description.itemDescription.description }}
+                {{ skill.description }}
               </p>
             </div>
           </mat-tab>

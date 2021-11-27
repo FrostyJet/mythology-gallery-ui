@@ -25,7 +25,9 @@ export class GodsPreviewComponent implements OnInit {
 
     if (godSlug) {
       this.godsService.getGodDetails(godSlug).subscribe((res: any) => {
-        this.store.dispatch(setPreviewGod({ previewGod: res[0] }));
+        console.log(res);
+
+        this.store.dispatch(setPreviewGod({ previewGod: res }));
       });
     }
   }
